@@ -94,7 +94,7 @@ else:
             "ATOMIC_REQUESTS": True,
             "OPTIONS": {
                 "charset": "utf8mb4",
-                "ssl": {},
+                "ssl": True,
                 "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
             },
         }
