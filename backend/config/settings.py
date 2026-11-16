@@ -5,6 +5,7 @@ All secrets and environment-specific values are read with python-decouple from
 environment variables or a local ``.env`` file (never committed).
 """
 from datetime import timedelta
+import os
 from pathlib import Path
 
 from decouple import Csv, config
@@ -94,7 +95,7 @@ else:
             "ATOMIC_REQUESTS": True,
             "OPTIONS": {
                 "charset": "utf8mb4",
-                "ssl": True,
+                "ssl": {} if "pymysql" in __import__("sys").modules else True,
                 "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
             },
         }
